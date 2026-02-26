@@ -14,7 +14,7 @@ public class vendasDao {
     // lista todas as vendas
     public ArrayList<vendasBeans> listarVendas(){
         ArrayList<vendasBeans> vendas = new ArrayList<>();
-        String read = "SELECT * FROM VENDAS r";
+        String read = "SELECT r.ID_PEDIDO, r.ID_CLIENTE, r.NOME_CLIENTE, r.ID_PRODUTO, r.NOME_PRODUTO, CAST(r.VALOR_PRODUTO * r.QTDE_COMPRADA AS NUMERIC(15,2)) AS VALOR_TOTAL, r.QTDE_COMPRADA, r.ID_FUNCIONARIO, r.NOME_FUNCIONARIO, r.STATUS_PAGAMENTO, r.DATA_COMPRA FROM VENDAS r;";
         try {
             pst = conexao.conectar().prepareStatement(read);
             rs = pst.executeQuery();
@@ -41,3 +41,4 @@ public class vendasDao {
         }
     }
 }
+
