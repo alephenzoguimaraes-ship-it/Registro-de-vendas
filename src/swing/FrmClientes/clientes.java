@@ -593,10 +593,9 @@ public class clientes extends JFrame{
             } finally {
                 if (documento.isOpen()) {
                     documento.close();
-                } else {
-                    // documento já está fechado
                 }
             }
         }
     }
+
 }
